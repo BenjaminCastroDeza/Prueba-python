@@ -78,6 +78,17 @@ def filtro_genero():
             print(f"Unidad = {venta['Precio por unidad']}")
             print(f"Precio Total = {venta['Precio Total']}")
 
+def generar_txt():
+    nombre_archivo = input("Ingrese el nombre del archivo: ").strip() + ".txt"
+    with open(nombre_archivo, 'w') as archivo:
+        for venta in registroVenta:
+            archivo.write(f"Titulo: {venta['Titulo']['Titulo']}\n")
+            archivo.write(f"Cantidad: {venta['Cantidad Vendida']}\n")
+            archivo.write(f"Precio Unidad: {venta['Precio por unidad']}\n")
+            archivo.write(f"Precio Total: {venta['Precio Total']}\n")
+            archivo.write("\n")
+    print(f"Archivo {nombre_archivo} generado exitosamente.")
+
 while True:
     print("-------------------------------")
     print("1.- Registrar libro")
@@ -105,15 +116,5 @@ while True:
             filtro_genero()
         else:
             print("Ingrese opcion valida")
-
     elif opc == 5:
-
-        nombreArchivo = 0
-        with open(nombreArchivo, "w") as archivo:
-            archivo.write("Reporte de ventas\n")
-            for venta in registroVenta:
-                archivo.write(f"Numero de venta: {venta['Numero de venta']}\n")
-                archivo.write(f"Libro: {venta['Libro']}\n")
-                archivo.write(f"Cantidad: {venta['Cantidad']}\n")
-                archivo.write(f"Precio: {venta['Precio']}\n")
-                archivo.write("-------------------------------\n")
+        generar_txt()
