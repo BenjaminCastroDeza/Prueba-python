@@ -1,0 +1,6 @@
+Nombre y apellido: benja 
+Cargo: ceo 
+Sueldo bruto: 2000000 
+Descuento de salud: 140000.0 
+Descuento AFP: 240000.0 
+Liquido a pagar: 1620000.0 
